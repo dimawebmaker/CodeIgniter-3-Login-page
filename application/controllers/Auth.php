@@ -18,12 +18,12 @@ class Auth extends MY_Controller {
 
             if(!$this->usr->login($login, $password)) {
                 $this->session->set_flashdata('error', 'Неверное сочетание логина/пароля');
-                return $this->load->view('auth/v_login', $this->data);
+                redirect('sign_in');
             }
 
 
             $this->session->set_flashdata('success', 'Авторизация успешна');
-            return $this->load->view('auth/v_login', $this->data);
+            redirect('sign_in');
 
 
         } //end if post
